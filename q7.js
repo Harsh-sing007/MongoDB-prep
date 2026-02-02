@@ -35,3 +35,7 @@ db.employees.updateOne(
 );
 
 db.employees.find({},{name:1})
+
+
+db.employees.deleteOne({email:"abc@gmail.com"})
+

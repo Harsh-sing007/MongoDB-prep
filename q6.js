@@ -13,7 +13,7 @@ db.employees.find({
     { department: "HR" },
     { salary: { $gt: 3000 } }
   ]
-})    //or it should be either one one
+})    //or it should be either one 
 
 db.employees.find({
   $or: [
