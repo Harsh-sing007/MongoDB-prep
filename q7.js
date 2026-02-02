@@ -39,3 +39,8 @@ db.employees.find({},{name:1})
 
 db.employees.deleteOne({email:"abc@gmail.com"})
 
+
+db.employees.find({name:{$exists:true}})    //finding  document where name field exists
+
+db.employees.find({name:{$exists:false}})  //finding  document where name field does not exist
+
