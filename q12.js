@@ -23,3 +23,36 @@ db.employees.aggregate([
 );
 
 
+
+
+db.employees.aggregate(
+    [
+  {
+    $group: {
+      _id: "$department",
+      total:{ $sum: "$salary"},
+      Highest:{$max:"$salary"},
+      Lowest:{$min:"$salary"},
+      Average:{$avg:"$salary"}
+    }
+  },
+]
+);
+
+
+
+db.employees.aggregate(
+    [
+        {$project:{_id:0,
+            name:1,
+            salary:1,
+            annualSal:{$multiply:["$salary",12]}    
+        }
+    }
+
+    ]
+)
+
+
+
+
