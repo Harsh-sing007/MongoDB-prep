@@ -4,3 +4,13 @@ db.employees.find(
 
  
 db.employees.createIndex({email: 1})
+
+
+db.employees.getIndexes()
+
+db.employees.dropIndex({email: 1})
+
+db.employees.find({},{_id:0,name:1})
+
+db.employees.find({},{_id:0,name:1}).sort({name:1})
+
