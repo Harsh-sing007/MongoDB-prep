@@ -27,7 +27,21 @@ db.employees.updateMany({},
 )
 
 
-db.employees.updateOne({email:"cathy@gmail.com"},
+db.employees.updateOne(
+    {email:"cathy@gmail.com"},
     {
-        $push:{skills:".Net"}}
+        $push:{skills:".Net"}}               
+)   
+
+db.employees.updateOne(
+    {email:"cathy@gmail.com"},
+    {$addToSet:{skills:"Java"}}         // check duplicate if not their it will add
 )
+
+
+db.employees.updateOne(
+    {email:"cathy@gmail.com"},            //<- to remove
+    {$pull:{skills:"Python"}}
+)
+
+
