@@ -1,0 +1,8 @@
+db.employees.aggregate(
+    [
+        {},
+        {},
+        {}
+    ]
+)
+
