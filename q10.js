@@ -14,3 +14,5 @@ db.employees.find({},{_id:0,name:1})
 
 db.employees.find({},{_id:0,name:1}).sort({name:1})
 
+db.employees.find({},{_id:0,name:1}).collection({local:'en',strength:2}).sort({name:1})
+
