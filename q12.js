@@ -49,7 +49,6 @@ db.employees.aggregate(
             annualSal:{$multiply:["$salary",12]}    
         }
     }
-
     ]
 )
 
