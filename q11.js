@@ -34,3 +34,27 @@ db.employees.aggregate(
         },
     ]
 )
+
+//db.employees.find({},{_id:0,name:0,})
+
+
+
+db.employees.aggregate(
+    [
+        {
+            $sortt: {name: 1}                       
+        },
+    ]
+)
+
+db.employees.aggregate([
+  { $skip: 1 }
+])
+
+
+db.employees.aggregate([
+  { $limit: 3 }
+])
+
+
+
