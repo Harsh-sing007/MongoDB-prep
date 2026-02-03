@@ -17,3 +17,17 @@ db.employees.updateOne(
 
 //creating a new field skills and add python as array
 
+db.employees.updateMany({},
+    {$push:{skills:"Python"}}
+)
+
+
+  db.employees.updateMany({},
+    {$push:{skills:"Java"}}
+)
+
+
+db.employees.updateOne({email:"cathy@gmail.com"},
+    {
+        $push:{skills:".Net"}}
+)
