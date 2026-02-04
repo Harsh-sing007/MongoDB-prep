@@ -32,13 +32,13 @@ db.users.find({},{
 db.users.find({},{
     name:1,
      age:1,
-     city:"$address.city",
+     city:"$address.city",                //displaying city and state from address field with new field names 
+
      state:"$address.state"
 }
-)                    //displaying city and state from address field with new field names 
+)                  
 
-
-//Add Skills array for all users and populate java, Python
+ //Add Skills array for all users and populate java, Python
 
 db.users.updateMany(
     {},
@@ -53,3 +53,29 @@ db.users.updateMany(
         $set:{Skills:["Java","Python"]}
     }
 )
+
+db.users.updateOne(
+  { name: "Ria" },
+  { $addToSet: { Skills: ".NET" } }
+)
+
+
+db.users.find({},{
+    _id:0,
+    name:1,
+    Skills:1
+})                     //displaying name and Skills array
+
+db.users.aggregate({$project:{_id:0,name:1,Skills:1}})    
+
+
+db.users.aggregate([
+    {$project:
+   {
+    _id:0, 
+    name:1, 
+    Skills:1
+}
+},
+{$unwind:"$Skills"}
+])   
