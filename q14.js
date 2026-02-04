@@ -38,3 +38,18 @@ db.users.find({},{
 )                    //displaying city and state from address field with new field names 
 
 
+//Add Skills array for all users and populate java, Python
+
+db.users.updateMany(
+    {},
+    {
+        $push:{Skills:["Java","Python"]}
+    }
+)
+
+db.users.updateMany(
+    {},
+    {
+        $set:{Skills:["Java","Python"]}
+    }
+)
