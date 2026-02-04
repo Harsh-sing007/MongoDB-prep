@@ -10,3 +10,62 @@ db.orders.aggregate([
 ]
 
 )
+
+//Another query how will join it 
+
+db.orders.aggregate([
+    {
+        $lookup:{
+            from:"employees",
+            localField:"empid",
+            foreignField:"_id",
+            as:"users"
+
+        }
+    }
+])
+
+//join
+db.employees.aggregate([
+    {
+        $lookup:{
+            from:"orders",
+            localField:"_id",
+            foreignField:"empid",
+            as:"orders"
+    }}
+])
+
+
+db.employees.aggregate([
+  {
+    $lookup: {
+      from: "orders",
+      localField: "_id",
+      foreignField: "empid",
+      as: "orders"
+    }
+  },
+  { $unwind: "$orders" },
+  { $project: {
+      _id: 0,
+      orders: 1
+    }
+  }
+])
+
+
+
+
+
+db.employees.aggregate([
+    {$lookup:{
+        from:"orders",
+        let:{uid:"_id"},
+        pipeline:[
+            {$match:
+                {$expr:{$eq:["$_id","$$uid"]}}}
+            ],
+            as:"orders"
+    }}
+])
