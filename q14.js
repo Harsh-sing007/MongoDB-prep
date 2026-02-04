@@ -66,7 +66,7 @@ db.users.find({},{
     Skills:1
 })                     //displaying name and Skills array
 
-db.users.aggregate({$project:{_id:0,name:1,Skills:1}})    
+db.users.aggregate([{$project:{_id:0,name:1,Skills:1}}])    
 
 
 db.users.aggregate([
@@ -79,3 +79,5 @@ db.users.aggregate([
 },
 {$unwind:"$Skills"}
 ])   
+
+
