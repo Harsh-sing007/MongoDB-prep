@@ -9,3 +9,32 @@ db.users.insertOne({
     age:20,
     address:{addr1:"50 Verdin Ct",city:"New York",state:"NY"},
 })
+
+db.users.insertOne({
+    name:"Ria",
+    age:20,
+    address:{addr1:"25 Dr Lane",city:"JAX",state:"FL"},
+})
+
+db.users.insertOne({
+    name:"diya",
+    age:21,
+    address:{addr1:"100 Main St",city:"Miami",state:"FL"},
+})
+
+
+db.users.find({},{
+    name:1,
+     age:1,
+     "address.city":1})                     //displaying city from address field
+
+
+db.users.find({},{
+    name:1,
+     age:1,
+     city:"$address.city",
+     state:"$address.state"
+}
+)                    //displaying city and state from address field with new field names 
+
+
