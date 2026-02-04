@@ -69,3 +69,23 @@ db.employees.aggregate([
             as:"orders"
     }}
 ])
+
+
+db.employees.aggregate([
+    {$lookup:{
+        from:"orders",
+        let:{uid:"_id"},
+        pipeline:[
+            {$match:
+                {$expr:{$eq:["$_id","$$uid"]}}}
+            ],
+            as:"orders"
+    }},
+    {
+        $project:{
+            name:1,
+            product:"$orders.product",
+            orderValue:"$orders.orderValue"
+        }
+    }
+])
