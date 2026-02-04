@@ -55,9 +55,6 @@ db.employees.aggregate([
 ])
 
 
-
-
-
 db.employees.aggregate([
     {$lookup:{
         from:"orders",
