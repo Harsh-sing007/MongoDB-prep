@@ -24,3 +24,12 @@ db.users.insertOne({
   password: "1234",
   role: "admin", // student | instructor | admin
 });
+
+//course collection
+db.courses.insertOne({
+  _id: "c1",
+  title: "MongoDB for Beginners",
+  description: "Learn MongoDB from scratch",
+  instructorId: "u2",
+  price: 1999,
+});
