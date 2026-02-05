@@ -107,7 +107,3 @@ db.quizzes.insertOne({
 });
 
 
-//no changes in q17.js
-
-//
-//
