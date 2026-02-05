@@ -135,5 +135,3 @@ db.employees.aggregate([
     }
 ]
 )
-
-
