@@ -33,3 +33,75 @@ db.courses.insertOne({
   instructorId: "u2",
   price: 1999,
 });
+
+db.courses.insertOne({
+  _id: "c2",
+  title: "Nodejs for Beginners",
+  description: "Learn Nodejs",
+  instructorId: "u2",
+  price: 2000,
+});
+
+//modules collection
+db.modules.insertOne({
+  _id: "m1",
+  courseId: "c1",
+  title: "Introduction to MongoDB",
+  order: 1,
+});
+
+db.modules.insertOne({
+  _id: "m2",
+  courseId: "c1",
+  title: "CRUD Operation",
+  order: 2,
+});
+
+db.modules.insertOne({
+  _id: "m3",
+  courseId: "c2",
+  title: "Introduction to Nodejs",
+  order: 3,
+});
+
+db.modules.insertOne({
+  _id: "m4",
+  courseId: "c2",
+  title: "Aggregate Pipelines",
+  order: 4,
+});
+
+//lesson collection
+db.lessons.insertOne({
+  _id: "l1",
+  moduleId: "m1",
+  title: "What is MongoDB?",
+  description: "MongoDB is a document database.",
+  order: 1,
+});
+
+//enrollment collection
+db.enrollments.insertOne({
+  studentId: "u1",
+  courseId: "c1",
+});
+
+//lesson progress collection
+db.lessonProgress.insertOne({
+  studentId: "u1",
+  lessonId: "l1",
+  isCompleted: true,
+});
+
+//quizzes collection
+db.quizzes.insertOne({
+  _id: ObjectId,
+  lessonId: "l1",
+  questions: [
+    {
+      question: "MongoDB is?",
+      options: ["SQL DB", "NoSQL DB", "File System"],
+      correctAnswer: "NoSQL DB",
+    },
+  ],
+});
