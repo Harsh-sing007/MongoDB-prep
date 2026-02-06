@@ -1,8 +1,5 @@
 //create folder mongo-replica 
 // now create folders  -usa, uk, india inside mongo-replica
-
-const { table } = require("node:console")
-
 //mongod -replSet rs1 --dbpath D:\mongo-replica\usa --port 27018
 mongod -replSet rs1 --dbpath "D:\mongo-replica\usa" --port 27018
 //mongod -replSet rs1 --dbpath "D:\mongo-replica\uk" --port 27019
@@ -31,3 +28,5 @@ rs.initiate({
 //new tab
 //mongosh --port 27019
 //db.getMongo().setReadPref("secondary")
+
+//db.shutdownServer() - to stop the server
